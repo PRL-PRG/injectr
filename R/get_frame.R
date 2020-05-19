@@ -1,0 +1,10 @@
+
+#' @export
+get_frame <- function(object, ...) {
+    UseMethod("get_frame")
+}
+
+#' @export
+get_frame.injectr_call_stack <- function(call_stack, position) {
+    .Call(C_call_stack_get_frame, call_stack, position)
+}
