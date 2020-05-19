@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+#define USE_RINTERNALS
 #include "r_api.hpp"
 #include <stdio.h>
 
