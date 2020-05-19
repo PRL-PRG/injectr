@@ -1,10 +1,10 @@
 
 #' @export
-get_name <- function(object, ...) {
+get_name <- function(argument, ...) {
     UseMethod("get_name")
 }
 
 #' @export
-get_name.injectr_argument <- function(argument) {
+get_name.injectr_argument <- function(argument, ...) {
     .Call(C_argument_get_name, argument)
 }
