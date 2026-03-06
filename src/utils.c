@@ -7,6 +7,9 @@
 #include <Rdefines.h>
 #include <stdio.h>
 
+#undef isNull
+#define isNull(target) (target == R_NilValue)
+
 SEXP reassign_function_body(SEXP fun, SEXP body) {
   if (TYPEOF(fun) != CLOSXP) Rf_error("fun must be a function");
 
