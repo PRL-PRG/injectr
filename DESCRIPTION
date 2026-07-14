@@ -12,6 +12,9 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests:
+    mutator,
     testthat
+Remotes:
+    PRL-PRG/mutator@v0.1.0
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0

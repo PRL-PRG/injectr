@@ -2,6 +2,7 @@
 ^\.travis\.yml$
 ^\.gitignore$
 ^\.git$
+^\.github$
 ^injectr.Rcheck$
 ^Makefile$
 ^injectr_.*\.tar\.gz$

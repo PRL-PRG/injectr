@@ -1,0 +1,12 @@
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+name: mutation-testing
+
+jobs:
+  mutation:
+    uses: PRL-PRG/mutator/.github/workflows/mutation-testing.yaml@v0.1.0
+    with:
+      target-margin: "0.10"
