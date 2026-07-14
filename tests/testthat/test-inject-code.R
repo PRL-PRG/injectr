@@ -187,7 +187,7 @@ test_that("inject_code supports multiple injection", {
     expect_null(inject_code(capture <<- c(capture, 3), f, "onerror"))
 
     expect_error(f(TRUE))
-    expect_equal(capture, c(0, 1, 3, 2))
+    expect_equal(capture, c(0, 1, 2, 3))
 
     capture <- numeric(0)
 
