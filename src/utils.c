@@ -5,6 +5,7 @@
 #include <R_ext/Error.h>
 #include <R_ext/Rdynload.h>
 #include <Rdefines.h>
+#include <Rversion.h>
 #include <stdio.h>
 
 #undef isNull
@@ -24,7 +25,18 @@ SEXP reassign_function_body(SEXP fun, SEXP body) {
     Rf_error("body type %d is not supported", TYPEOF(body));
   }
 
+#if R_VERSION >= R_Version(4, 6, 0)
+  /* R 4.6 no longer exposes SET_BODY (nor the SEXPREC struct via
+     USE_RINTERNALS), so we can no longer touch the closure body slot
+     directly. A closure's internal layout (formals/body/env) shares the
+     union's common initial sequence with a pairlist cell (car/cdr/tag),
+     so the body slot is the cdr slot. SETCDR is still part of the public
+     C API and performs the required GC write barrier, so we use it to
+     replace the body in place. */
+  SETCDR(fun, body);
+#else
   SET_BODY(fun, body);
+#endif
 
   return R_NilValue;
 }
