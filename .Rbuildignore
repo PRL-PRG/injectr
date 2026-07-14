@@ -3,6 +3,7 @@
 ^\.gitignore$
 ^\.git$
 ^\.github$
+^README\.Rmd$
 ^injectr.Rcheck$
 ^Makefile$
 ^injectr_.*\.tar\.gz$
