@@ -7,6 +7,12 @@ name: mutation-testing
 
 jobs:
   mutation:
-    uses: PRL-PRG/mutator/.github/workflows/mutation-testing.yaml@v0.1.0
+    uses: PRL-PRG/mutator/.github/workflows/mutation-testing.yaml@v0.1.1
+    # contents: write lets the reusable workflow publish the badge JSON to gh-pages.
+    permissions:
+      contents: write
     with:
       target-margin: "0.10"
+      # Publishes mutation-results/mutation-score.json to the gh-pages branch
+      # (skipped on pull_request) for the shields.io badge in README.md.
+      deploy-badge: true

@@ -13,6 +13,13 @@ devtools::load_all()
 
 # injectr
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/PRL-PRG/injectr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PRL-PRG/injectr/actions/workflows/R-CMD-check.yaml)
+[![codecov](https://codecov.io/gh/PRL-PRG/injectr/branch/master/graph/badge.svg)](https://codecov.io/gh/PRL-PRG/injectr)
+[![r-universe](https://prl-prg.r-universe.dev/injectr/badges/version)](https://prl-prg.r-universe.dev/injectr)
+[![mutator](https://img.shields.io/endpoint?url=https%3A%2F%2Fprl-prg.github.io%2Finjectr%2Fmutation-score.json)](https://github.com/PRL-PRG/injectr/actions/workflows/mutation-testing.yaml)
+<!-- badges: end -->
+
 R package for injecting code into existing functions.
 
 ## Usage

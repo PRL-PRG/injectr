@@ -46,5 +46,12 @@ test_that("sexp_address returns an address of SEXP", {
     a <- 1
 
     expect_equal(sexp_address(a), sexp_address(a))
-    expect_true(startsWith(sexp_address(a), "0x"))
+    # The underlying C "%p" format is platform-dependent: glibc/macOS prefix
+    # the address with "0x", while mingw (Windows) prints bare hex digits.
+    # Nothing in the package relies on the prefix, so accept either form.
+    if (.Platform$OS.type == "windows") {
+        expect_true(grepl("^[0-9a-fA-F]+$", sexp_address(a)))
+    } else {
+        expect_true(startsWith(sexp_address(a), "0x"))
+    }
 })
